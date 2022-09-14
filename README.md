@@ -1,62 +1,29 @@
-# Template Proyek Django PBP
+## Link Heroku
+- https://tombomb.herokuapp.com/
+- https://tombomb.herokuapp.com/katalog
 
-Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
+## Bagan Django
+![Flowcharts](https://user-images.githubusercontent.com/112454640/190055568-c12a6e4e-5eef-4262-97fe-f596811c2d84.svg)
+- URLs
+urls.py bertugas untuk mengalihkan permintaan dari HTTP kepada view yang sesuai dengan url yang diminta.
+- View
+views.py akan menerima permintaan dari HTTP dan akan mengembalikan respon sesuai permintaan dari HTTP tersebut. views.py juga mengakses model dan template untuk memenuhi permintaan HTTP.
+- Models
+models.py akan menyediakan suatu mekanisme untuk mengelola dan meminta query dalam suatu database
+- Template
+Template yang biasanya merupakan file HTML (tidak harus) akan membuat struktur atau layout yang akan merepresentasikan konten yang ingin ditampilkan.
 
-*Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
+## Manfaat Virtual Environment
+- Dapat mengakomodasi banyak versi dari python. Jadi saat implementasi dengan python dapat memiliki versi python yang berbeda-beda dimana mereka semua tidak akan bercampur satu sama lain.
+- Dapat mengakomodasi versi django yang berbeda-beda, terutama saat bekerja secara berkelompok tentu lebih baik menggunakan versi django yang sama agar tidak banyak error dan lebih mudah saat proses debugging. Dengan adanya virtual environment kita tak perlu untuk downgrade django untuk menyamai versi yang dimiliki oleh teman sekelompok.
 
-## Pendahuluan
+## Langkah Implementasi
+1. Membuat fungsi pada views.py yang berisi data yang ingin ditampilkan dengan mengimport data dari model.
+2. Membuat routing pada urls.py dengan mengimport fungsi dari views.py.
+3. Memetakan data yang sudah ada, pada file HTML dengan syntax {{}}.
+4. Membuat migrasi dan loaddata agar dapat dicoba pada server local terlebih dahulu sebelum di deploy.
+5. Mendeploy ke heroku melalui github.
 
-Repositori ini merupakan sebuah template yang dirancang untuk membantu mahasiswa yang sedang mengambil mata kuliah Pemrograman Berbasis Platform (CSGE602022) mengetahui struktur sebuah proyek aplikasi Django serta file dan konfigurasi yang penting dalam berjalannya aplikasi. Kamu dapat dengan bebas menyalin isi dari repositori ini atau memanfaatkan repositori ini sebagai pembelajaran sekaligus awalan dalam membuat sebuah proyek Django.
-
-## Cara Menggunakan
-
-Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nantinya akan kamu modifikasi:
-
-1. Buka laman GitHub repositori templat kode, lalu klik tombol "**Use this template**"
-   untuk membuat salinan repositori ke dalam akun GitHub milikmu.
-2. Buka laman GitHub repositori yang dibuat dari templat, lalu gunakan perintah
-   `git clone` untuk menyalin repositorinya ke suatu lokasi di dalam sistem
-   berkas (_filesystem_) komputermu:
-
-   ```shell
-   git clone <URL ke repositori di GitHub> <path ke suatu lokasi di filesystem>
-   ```
-3. Masuk ke dalam repositori yang sudah di-_clone_ dan jalankan perintah berikut
-   untuk menyalakan _virtual environment_:
-
-   ```shell
-   python -m venv env
-   ```
-4. Nyalakan environment dengan perintah berikut:
-
-   ```shell
-   # Windows
-   .\env\Scripts\activate
-   # Linux/Unix, e.g. Ubuntu, MacOS
-   source env/bin/activate
-   ```
-5. Install dependencies yang dibutuhkan untuk menjalankan aplikasi dengan perintah berikut:
-
-   ```shell
-   pip install -r requirements.txt
-   ```
-
-6. Jalankan aplikasi Django menggunakan server pengembangan yang berjalan secara
-   lokal:
-
-   ```shell
-   python manage.py runserver
-   ```
-7. Bukalah `http://localhost:8000` pada browser favoritmu untuk melihat apakah aplikasi sudah berjalan dengan benar.
-
-## Contoh Deployment 
-
-Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi. 
-
-Untuk melakukan deployment, kamu dapat melihat instruksi yang ada pada [Tutorial 0](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tutorial/tutorial-0).
-
-Untuk contoh aplikasi Django yang sudah di deploy, dapat kamu akses di [https://django-pbp-template.herokuapp.com/](https://django-pbp-template.herokuapp.com/)
-
-## Credits
-
-Template ini dibuat berdasarkan [PBP Ganjil 2021](https://gitlab.com/PBP-2021/pbp-lab) yang ditulis oleh Tim Pengajar Pemrograman Berbasis Platform 2021 ([@prakashdivyy](https://gitlab.com/prakashdivyy)) dan [django-template-heroku](https://github.com/laymonage/django-template-heroku) yang ditulis oleh [@laymonage, et al.](https://github.com/laymonage). Template ini dirancang sedemikian rupa sehingga mahasiswa dapat menjadikan template ini sebagai awalan serta acuan dalam mengerjakan tugas maupun dalam berkarya.
+## Refrensi
+- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction
+- https://www.parallels.com/blogs/ras/virtual-machine/#:~:text=Portability.,%2C%20making%20them%20hardware%2Dindependent.
