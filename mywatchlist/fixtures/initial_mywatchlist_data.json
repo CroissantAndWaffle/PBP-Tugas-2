@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 1,
+        "fields": {
+            "watched": "Yes",
+            "title": "Futurama (season 1-10)",
+            "rating": "4.8",
+            "release_date": "28/03/1999",
+            "review": "This show is ahead of its time, it has a lot of good jokes."
+        }
+    },
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 2,
+        "fields": {
+            "watched": "Yes",
+            "title": "Rick and Morty (season 1-5)",
+            "rating": "4.6",
+            "release_date": "02/12/2013",
+            "review": "A good comedy show with good plots, sadly it's overrated."
+        }
+    },
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 3,
+        "fields": {
+            "watched": "Yes",
+            "title": "Spider-Man: Into the Spider-Verse",
+            "rating": "4.4",
+            "release_date": "14/12/2018",
+            "review": "A refreshing spiderman story with some emotional scenes."
+        }
+    },
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 4,
+        "fields": {
+            "watched": "No",
+            "title": "Family Guy",
+            "rating": "-",
+            "release_date": "31/01/1999",
+            "review": "-"
+        }
+    },
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 5,
+        "fields": {
+            "watched": "Yes",
+            "title": "Arcane (season 1)",
+            "rating": "4.5",
+            "release_date": "06/11/2021",
+            "review": "It has good character writing and development with only 9 episodes."
+        }
+    },
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 6,
+        "fields": {
+            "watched": "No",
+            "title": "Monster",
+            "rating": "-",
+            "release_date": "06/04/2004",
+            "review": "-"
+        }
+    },
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 7,
+        "fields": {
+            "watched": "Yes",
+            "title": "Cowboy Bebop",
+            "rating": "4.4",
+            "release_date": "02/09/2001",
+            "review": "Has a lot of aesthetic shots and still relevant until now."
+        }
+    },
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 8,
+        "fields": {
+            "watched": "Yes",
+            "title": "A Silent Voice: The Movie",
+            "rating": "4.7",
+            "release_date": "17/09/2016",
+            "review": "A really good story with some heartwrenching scenes."
+        }
+    },
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 9,
+        "fields": {
+            "watched": "Yes",
+            "title": "The Dark Knight",
+            "rating": "4.7",
+            "release_date": "18/06/2008",
+            "review": "Simply a work of art, with a good villain character."
+        }
+    },
+    {
+        "model": "mywatchlist.MywatchlistItem",
+        "pk": 10,
+        "fields": {
+            "watched": "No",
+            "title": "I Lost My Body",
+            "rating": "-",
+            "release_date": "15/11/2019",
+            "review": "-"
+        }
+    }
+]

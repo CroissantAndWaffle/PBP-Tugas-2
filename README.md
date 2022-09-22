@@ -1,29 +1,56 @@
 ## Link Heroku
 - https://tombomb.herokuapp.com/
-- https://tombomb.herokuapp.com/katalog
+- https://tombomb.herokuapp.com/mywatchlist
 
-## Bagan Django
-![Flowcharts](https://user-images.githubusercontent.com/112454640/190055568-c12a6e4e-5eef-4262-97fe-f596811c2d84.svg)
-- URLs
-urls.py bertugas untuk mengalihkan permintaan dari HTTP kepada view yang sesuai dengan url yang diminta.
-- View
-views.py akan menerima permintaan dari HTTP dan akan mengembalikan respon sesuai permintaan dari HTTP tersebut. views.py juga mengakses model dan template untuk memenuhi permintaan HTTP.
-- Models
-models.py akan menyediakan suatu mekanisme untuk mengelola dan meminta query dalam suatu database
-- Template
-Template yang biasanya merupakan file HTML (tidak harus) akan membuat struktur atau layout yang akan merepresentasikan konten yang ingin ditampilkan.
+## Perbedaan antara JSON, XML, dan HTML
+JSON
+- Berdasarkan bahasa JavaScript.
+- Merupakan cara untuk merepresentasi objek-objek yang ada.
+- Dapat menggunakan array.
+- Lebih mudah dibaca dari XML.
+- tidak memakai end tag.
+- Hanya bisa memakai encoding UTF-8
 
-## Manfaat Virtual Environment
-- Dapat mengakomodasi banyak versi dari python. Jadi saat implementasi dengan python dapat memiliki versi python yang berbeda-beda dimana mereka semua tidak akan bercampur satu sama lain.
-- Dapat mengakomodasi versi django yang berbeda-beda, terutama saat bekerja secara berkelompok tentu lebih baik menggunakan versi django yang sama agar tidak banyak error dan lebih mudah saat proses debugging. Dengan adanya virtual environment kita tak perlu untuk downgrade django untuk menyamai versi yang dimiliki oleh teman sekelompok.
+XML
+- Sebuah Extensible markup language yang merupakan turunan dari SGML.
+- Menggunakan tag untuk merepresentasikan item.
+- Dapat menggunakan namespaces.
+- Memakai start dan end tag.
+- Lebih aman dari JSON.
+- Dapat menulis comment.
+- Dapat memakai berbagai macam encoding.
+
+HTML
+- Merupakan markup language.
+- Digunakan untuk display pada web browser.
+- Elemen HTML adalah pembangun laman HTML.
+- Mendeskripsikan struktur web page secara semantik.
+- Menggunakan start tag dan end tag.
+- Memiliki atribut yang menyediakan informasi tambahan dari sebuah tag.
+
+## Data delivery dalam implementasi sebuah platform
+Data delivery diperlukan agar server dapat merespon suatu request dengan data dan tampilan yang ingin ditampilkan oleh pemilik server. Data delivery terdiri dari banyak bentuk, contohnya HTML, CSS, JavaScript, dll.
 
 ## Langkah Implementasi
-1. Membuat fungsi pada views.py yang berisi data yang ingin ditampilkan dengan mengimport data dari model.
-2. Membuat routing pada urls.py dengan mengimport fungsi dari views.py.
-3. Memetakan data yang sudah ada, pada file HTML dengan syntax {{}}.
-4. Membuat migrasi dan loaddata agar dapat dicoba pada server local terlebih dahulu sebelum di deploy.
-5. Mendeploy ke heroku melalui github.
+1. Membuat app baru dengan startapp, serta menambahkan mywatchlist dalam INSTALLED_APPS pada settings.py
+2. Menambahkan path yang nantinya dapat diakses pada urls.py pada folder app mywatchlist dan urls.py pada folder project.
+3. Membuat class pada models.py yang memiliki atribut sesuai soal.
+4. Membuat file HTML untuk tampilan web.
+5. Membuat file JSON berisi data untuk objek Mywatchlist dan mengirimkan data ke HTML.
+6. Menambahkan fungsi pada views.py yang dapat menampilkan format HTML,XML,dan JSON.
+7. Membuat routing pada urls.py untuk fungsi yang sudah dibuat pada views.py
+8. Melakukan deployment ke Heroku
+
+## Postman
+HTML
+![Screenshot (29)](https://user-images.githubusercontent.com/112454640/191654393-cc280721-0639-418c-a1b1-6f7cbd265351.png)
+
+XML
+![Screenshot (30)](https://user-images.githubusercontent.com/112454640/191654404-3af76f5f-5c10-4b5d-9455-1d0f971e349e.png)
+
+JSON
+![Screenshot (31)](https://user-images.githubusercontent.com/112454640/191654411-a6f181f8-37f9-4616-8c25-d52ee9959f8a.png)
 
 ## Refrensi
-- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction
-- https://www.parallels.com/blogs/ras/virtual-machine/#:~:text=Portability.,%2C%20making%20them%20hardware%2Dindependent.
+- https://www.geeksforgeeks.org/difference-between-json-and-xml/
+- https://learning.postman.com/docs/getting-started/sending-the-first-request/
