@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+
+  <h1>Tugas 4 Assignment PBP</h1>
+
+  <h5>Name: </h5>
+  <p>{{name}}</p>
+
+  <h5>Student ID: </h5>
+  <p>{{studentid}}</p>
+
+  <h5>Username: </h5>
+  <p>{{user}}</p>
+  
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+  <class = "main-table">
+  <table>
+    <tr bgcolor="#797c80">
+      <th align="center">Tanggal Pembuatan</th>
+      <th align="center">Judul</th>
+      <th align="center">Deskripsi</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+      {% for task in list_task %}
+          <tr>
+              <td align="center">{{task.date}}</td>
+              <td align="center">{{task.title}}</td>
+              <td align="center">{{task.description}}</td>
+          </tr>
+      {% endfor %}
+  </table>
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+<button><a href="{% url 'todolist:new_task' %}">Tambah Task Baru</a></button>
+<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+
+{% endblock content %}

@@ -1,56 +1,19 @@
 ## Link Heroku
 - https://tombomb.herokuapp.com/
-- https://tombomb.herokuapp.com/mywatchlist
+- https://tombomb.herokuapp.com/todolist
 
-## Perbedaan antara JSON, XML, dan HTML
-JSON
-- Berdasarkan bahasa JavaScript.
-- Merupakan cara untuk merepresentasi objek-objek yang ada.
-- Dapat menggunakan array.
-- Lebih mudah dibaca dari XML.
-- tidak memakai end tag.
-- Hanya bisa memakai encoding UTF-8
+## Kegunaan csrf_token
+csrf token berguna untuk mencegah serangan *Cross-Site Request Forgery*. csrf adalah sebuah serangan yang membuat seorang user yang sudah terautentikasi pada suatu web melakukan suatu aksi yang diinginkan oleh penyerang. csrf dilakukan dengan link, csrf token akan mencegah hal ini dengan membuat token yang sangat panjang yang hampir tidak mungkin untuk ditebak. Dengan begini, penyerang bukan hanya harus membuat user menggunakan web yang dibuat, melainkan juga harus menebak token yang dibuat oleh csrf token.
 
-XML
-- Sebuah Extensible markup language yang merupakan turunan dari SGML.
-- Menggunakan tag untuk merepresentasikan item.
-- Dapat menggunakan namespaces.
-- Memakai start dan end tag.
-- Lebih aman dari JSON.
-- Dapat menulis comment.
-- Dapat memakai berbagai macam encoding.
+## form.as_table
+form.as_table akan me-*render* form sebagai *table cells* yang akan dibungkus dengan tag <tr> saat html dieksekusi. Untuk membuat form secara manual gunakan tag <td> dan <tr> pada tiap judul form (jika ada) dan form yang ada dengan begini anda dapat menghasilkan tabel secara manual.
 
-HTML
-- Merupakan markup language.
-- Digunakan untuk display pada web browser.
-- Elemen HTML adalah pembangun laman HTML.
-- Mendeskripsikan struktur web page secara semantik.
-- Menggunakan start tag dan end tag.
-- Memiliki atribut yang menyediakan informasi tambahan dari sebuah tag.
+## Alur data
+Data yang disubmit oleh user akan disimpan dalam database django sesuai id masing-masing user untuk membedakan antara user satu dan yang lainnya. Saat ingin ditampilkan data akan difilter sesuai dengan id yang tadi tergantung usernya sehingga membedakan satu user dengan yang lain. Setelah di filter data akan ditampilkan pada HTML.
 
-## Data delivery dalam implementasi sebuah platform
-Data delivery diperlukan agar server dapat merespon suatu request dengan data dan tampilan yang ingin ditampilkan oleh pemilik server. Data delivery terdiri dari banyak bentuk, contohnya HTML, CSS, JavaScript, dll.
-
-## Langkah Implementasi
-1. Membuat app baru dengan startapp, serta menambahkan mywatchlist dalam INSTALLED_APPS pada settings.py
-2. Menambahkan path yang nantinya dapat diakses pada urls.py pada folder app mywatchlist dan urls.py pada folder project.
-3. Membuat class pada models.py yang memiliki atribut sesuai soal.
-4. Membuat file HTML untuk tampilan web.
-5. Membuat file JSON berisi data untuk objek Mywatchlist dan mengirimkan data ke HTML.
-6. Menambahkan fungsi pada views.py yang dapat menampilkan format HTML,XML,dan JSON.
-7. Membuat routing pada urls.py untuk fungsi yang sudah dibuat pada views.py
-8. Melakukan deployment ke Heroku
-
-## Postman
-HTML
-![Screenshot (29)](https://user-images.githubusercontent.com/112454640/191654393-cc280721-0639-418c-a1b1-6f7cbd265351.png)
-
-XML
-![Screenshot (30)](https://user-images.githubusercontent.com/112454640/191654404-3af76f5f-5c10-4b5d-9455-1d0f971e349e.png)
-
-JSON
-![Screenshot (31)](https://user-images.githubusercontent.com/112454640/191654411-a6f181f8-37f9-4616-8c25-d52ee9959f8a.png)
+## Implementasi
+Buat models sesuai ketentuan soal. Tambahkan fungsi baru pada views seperti register, login, logout, serta fungsi untuk membuat task baru. Jangan lupa modifikasi fungsi yang menampilkan /todolist agar menampilkan sesuai user yang mengakses dan tambahkan keharusan untuk login sebelum membuka data. Buatlah file HTML dari setiap fungsi yang memerlukan tampilan pada web dengan mengimplementasikan form pada HTML. Tambahkan juga fungsi logout untuk dapat mengganti account. Routing semua link ke urls.
 
 ## Refrensi
-- https://www.geeksforgeeks.org/difference-between-json-and-xml/
-- https://learning.postman.com/docs/getting-started/sending-the-first-request/
+- https://owasp.org/www-community/attacks/csrf
+- https://www.geeksforgeeks.org/form-as_table-render-django-forms-as-table/
