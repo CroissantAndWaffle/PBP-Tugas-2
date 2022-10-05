@@ -16,14 +16,17 @@ from django.urls import reverse
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
     data_task = Task.objects.filter(user=request.user.id)
-    context = {
-        'list_task': data_task,
-        'name': 'Rafa Maritza',
-        'studentid': '2106651944',
-        'last_login': request.COOKIES['last_login'],
-        'user': request.COOKIES['username']
-    }
-    return render(request, "todolist.html", context)
+    try:
+        context = {
+            'list_task': data_task,
+            'name': 'Rafa Maritza',
+            'studentid': '2106651944',
+            'last_login': request.COOKIES['last_login'],
+            'user': request.COOKIES['username'],
+        }
+        return render(request, "todolist.html", context)
+    except:
+        return redirect("/todolist/login/")
 
 def register(request):
     form = UserCreationForm()

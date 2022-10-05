@@ -1,24 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
 
- {% block content %}
+{% block meta %}
+<title>To Do List</title>
+{% endblock meta %}
 
-  <h1>Tugas 4 Assignment PBP</h1>
+{% block content %}
+<link rel="stylesheet" href="{% static '/todolist.css' %}">
+<nav class="navbar fixed-top navbar-expand-md">
+  <a class="navbar-brand">Tugas PBP</a>
+  <a class="navbar-brand">Username: {{user}}</a>
+  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="main-navigation">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'todolist:logout' %}">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'todolist:new_task' %}">Create Task</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-  <h5>Name: </h5>
-  <p>{{name}}</p>
-
-  <h5>Student ID: </h5>
-  <p>{{studentid}}</p>
-
-  <h5>Username: </h5>
-  <p>{{user}}</p>
   
-  <style>
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-  </style>
+
   <class = "main-table">
   <table>
     <tr bgcolor="#797c80">
@@ -35,9 +43,19 @@
           </tr>
       {% endfor %}
   </table>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'todolist:new_task' %}">Tambah Task Baru</a></button>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+<nav class="navbar fixed-bottom navbar-expand-md">
+  <a class="navbar-brand">Sesi terakhir login: {{ last_login }}</a>
+  <div class="collapse navbar-collapse" id="main-navigation">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'todolist:logout' %}">by {{name}} - {{studentid}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
 
 
 {% endblock content %}
