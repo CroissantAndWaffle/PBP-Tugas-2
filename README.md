@@ -1,19 +1,62 @@
-## Link Heroku
-- https://tombomb.herokuapp.com/
-- https://tombomb.herokuapp.com/todolist
+# Template Proyek Django PBP
 
-## Kegunaan csrf_token
-csrf token berguna untuk mencegah serangan *Cross-Site Request Forgery*. csrf adalah sebuah serangan yang membuat seorang user yang sudah terautentikasi pada suatu web melakukan suatu aksi yang diinginkan oleh penyerang. csrf dilakukan dengan link, csrf token akan mencegah hal ini dengan membuat token yang sangat panjang yang hampir tidak mungkin untuk ditebak. Dengan begini, penyerang bukan hanya harus membuat user menggunakan web yang dibuat, melainkan juga harus menebak token yang dibuat oleh csrf token.
+Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
-## form.as_table
-form.as_table akan me-*render* form sebagai *table cells* yang akan dibungkus dengan tag <tr> saat html dieksekusi. Untuk membuat form secara manual gunakan tag <td> dan <tr> pada tiap judul form (jika ada) dan form yang ada dengan begini anda dapat menghasilkan tabel secara manual.
+*Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
 
-## Alur data
-Data yang disubmit oleh user akan disimpan dalam database django sesuai id masing-masing user untuk membedakan antara user satu dan yang lainnya. Saat ingin ditampilkan data akan difilter sesuai dengan id yang tadi tergantung usernya sehingga membedakan satu user dengan yang lain. Setelah di filter data akan ditampilkan pada HTML.
+## Pendahuluan
 
-## Implementasi
-Buat models sesuai ketentuan soal. Tambahkan fungsi baru pada views seperti register, login, logout, serta fungsi untuk membuat task baru. Jangan lupa modifikasi fungsi yang menampilkan /todolist agar menampilkan sesuai user yang mengakses dan tambahkan keharusan untuk login sebelum membuka data. Buatlah file HTML dari setiap fungsi yang memerlukan tampilan pada web dengan mengimplementasikan form pada HTML. Tambahkan juga fungsi logout untuk dapat mengganti account. Routing semua link ke urls.
+Repositori ini merupakan sebuah template yang dirancang untuk membantu mahasiswa yang sedang mengambil mata kuliah Pemrograman Berbasis Platform (CSGE602022) mengetahui struktur sebuah proyek aplikasi Django serta file dan konfigurasi yang penting dalam berjalannya aplikasi. Kamu dapat dengan bebas menyalin isi dari repositori ini atau memanfaatkan repositori ini sebagai pembelajaran sekaligus awalan dalam membuat sebuah proyek Django.
 
-## Refrensi
-- https://owasp.org/www-community/attacks/csrf
-- https://www.geeksforgeeks.org/form-as_table-render-django-forms-as-table/
+## Cara Menggunakan
+
+Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nantinya akan kamu modifikasi:
+
+1. Buka laman GitHub repositori templat kode, lalu klik tombol "**Use this template**"
+   untuk membuat salinan repositori ke dalam akun GitHub milikmu.
+2. Buka laman GitHub repositori yang dibuat dari templat, lalu gunakan perintah
+   `git clone` untuk menyalin repositorinya ke suatu lokasi di dalam sistem
+   berkas (_filesystem_) komputermu:
+
+   ```shell
+   git clone <URL ke repositori di GitHub> <path ke suatu lokasi di filesystem>
+   ```
+3. Masuk ke dalam repositori yang sudah di-_clone_ dan jalankan perintah berikut
+   untuk menyalakan _virtual environment_:
+
+   ```shell
+   python -m venv env
+   ```
+4. Nyalakan environment dengan perintah berikut:
+
+   ```shell
+   # Windows
+   .\env\Scripts\activate
+   # Linux/Unix, e.g. Ubuntu, MacOS
+   source env/bin/activate
+   ```
+5. Install dependencies yang dibutuhkan untuk menjalankan aplikasi dengan perintah berikut:
+
+   ```shell
+   pip install -r requirements.txt
+   ```
+
+6. Jalankan aplikasi Django menggunakan server pengembangan yang berjalan secara
+   lokal:
+
+   ```shell
+   python manage.py runserver
+   ```
+7. Bukalah `http://localhost:8000` pada browser favoritmu untuk melihat apakah aplikasi sudah berjalan dengan benar.
+
+## Contoh Deployment 
+
+Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi. 
+
+Untuk melakukan deployment, kamu dapat melihat instruksi yang ada pada [Tutorial 0](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tutorial/tutorial-0).
+
+Untuk contoh aplikasi Django yang sudah di deploy, dapat kamu akses di [https://django-pbp-template.herokuapp.com/](https://django-pbp-template.herokuapp.com/)
+
+## Credits
+
+Template ini dibuat berdasarkan [PBP Ganjil 2021](https://gitlab.com/PBP-2021/pbp-lab) yang ditulis oleh Tim Pengajar Pemrograman Berbasis Platform 2021 ([@prakashdivyy](https://gitlab.com/prakashdivyy)) dan [django-template-heroku](https://github.com/laymonage/django-template-heroku) yang ditulis oleh [@laymonage, et al.](https://github.com/laymonage). Template ini dirancang sedemikian rupa sehingga mahasiswa dapat menjadikan template ini sebagai awalan serta acuan dalam mengerjakan tugas maupun dalam berkarya.
