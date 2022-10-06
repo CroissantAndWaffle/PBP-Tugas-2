@@ -10,11 +10,11 @@
 <nav class="navbar fixed-top navbar-expand-md">
   <a class="navbar-brand">Tugas PBP</a>
   <a class="navbar-brand">Username: {{user}}</a>
-  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="main-navigation">
-    <ul class="navbar-nav">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
         <a class="nav-link" href="{% url 'todolist:logout' %}">Logout</a>
       </li>
@@ -24,39 +24,19 @@
     </ul>
   </div>
 </nav>
-
-  <div class="container-fluid row justify-content-center p-5">
-      <h1 class="text-center">Task</h1>
-      <div class="row row-cols-md-4 col-sm-10 g-4">
-          {% for task in task_list %}
-              <div class="col">
-                  <div class="card h-100 text-dark">
-                      <div class="card-body">
-                          <h5 class="card-title">{{task.title}}</h5>
-                          <p class="card-text">{{task.description}}</p>
-                          <p class="card-text">{{task.date}}</p>
-                      </div>
-                  </div>
-              </div>
-          {% endfor %}
+<div class="row">
+{% for task in list_task %}
+  <div class="col-sm-6 row-cols-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{task.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{task.date}}</h6>
+        <p class="card-text">{{task.description}}</p>
       </div>
+    </div>
   </div>
-  <class = "main-table">
-  <table>
-    <tr bgcolor="#797c80">
-      <th align="center">Tanggal Pembuatan</th>
-      <th align="center">Judul</th>
-      <th align="center">Deskripsi</th>
-    </tr>
-    {% comment %} Add the data below this line {% endcomment %}
-      {% for task in list_task %}
-          <tr>
-              <td align="center">{{task.date}}</td>
-              <td align="center">{{task.title}}</td>
-              <td align="center">{{task.description}}</td>
-          </tr>
-      {% endfor %}
-  </table>
+{% endfor %}
+</div>
 
 <nav class="navbar fixed-bottom navbar-expand-md">
   <a class="navbar-brand">Sesi terakhir login: {{ last_login }}</a>
