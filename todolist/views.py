@@ -28,23 +28,17 @@ def show_todolist(request):
     except KeyError:
         return redirect("/todolist/login/")
 
-# @login_required(login_url='/todolist/login/')
+@login_required(login_url='/todolist/login/')
 def show_todolist_ajax(request):
-    # data = Task.objects.filter(user=request.user.id)
-    data = Task.objects.filter(user=request.user.id)
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-
-# @login_required(login_url='/todolist/login/')
-# def show_todolist_ajax(request):
-#     data_task = Task.objects.filter(user=request.user.id)
-#     context = {
-#         'list_task': data_task,
-#         'name': 'Rafa Maritza',
-#         'studentid': '2106651944',
-#         'last_login': request.COOKIES['last_login'],
-#         'user': request.COOKIES['username'],
-#     }
-#     return HttpResponse(serializers.serialize("json", data_task), content_type="application/json")
+    data_task = Task.objects.filter(user=request.user.id)
+    context = {
+        'list_task': data_task,
+        'name': 'Rafa Maritza',
+        'studentid': '2106651944',
+        'last_login': request.COOKIES['last_login'],
+        'user': request.COOKIES['username'],
+    }
+    return HttpResponse(serializers.serialize("json", data_task), content_type="application/json")
 
 def register(request):
     form = UserCreationForm()
@@ -94,3 +88,7 @@ def new_task(request):
         return response
     context = {}
     return render(request, 'new_task.html', context)
+
+@login_required(login_url='/todolist/login/')
+def add_task (request):
+    pass

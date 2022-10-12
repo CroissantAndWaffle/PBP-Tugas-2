@@ -6,7 +6,9 @@
 {% endblock meta %}
 
 {% block content %}
+<!-- CSS -->
 <link rel="stylesheet" href="{% static '/todolist.css' %}">
+<!-- Navbar atas -->
 <nav class="navbar navbar-expand-md">
   <a class="navbar-brand">Tugas PBP</a>
   <a class="navbar-brand">Username: {{user}}</a>
@@ -25,22 +27,41 @@
   </div>
 </nav>
 
-<div class="row">
-  <div id="display">
-  </div>
-</div>
-<!-- {% for task in list_task %}
-  <div class="col-13 col-md-6 col-lg-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{task.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{task.date}}</h6>
-        <p class="card-text">{{task.description}}</p>
+<!-- Modal -->
+<button type="button" class="btn-task btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Task</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
       </div>
     </div>
-  </div>
-{% endfor %} -->
+  </div> 
+</div>
 
+<!-- Daftar Task dalam card (menggunakan js) -->
+<div class="row" id="display">
+</div>
+
+<!-- Navbar bawah -->
 <nav class="navbar fixed-bottom navbar-expand-md">
   <a class="navbar-brand">Sesi terakhir login: {{ last_login }}</a>
   <div class="collapse navbar-collapse" id="main-navigation">
@@ -51,5 +72,7 @@
     </ul>
   </div>
 </nav>
+
+<!-- JS -->
 <script type="text/javascript" language="javascript" src="{% static '/todolist.js' %}"></script>
 {% endblock content %}
