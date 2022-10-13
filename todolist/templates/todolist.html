@@ -38,7 +38,7 @@
       </div>
       <div class="modal-body">
         <form method="POST" action="{%url 'todolist:add_task'}" id="add_task">
-          {% csrf_token %}
+          <!-- {% csrf_token %} -->
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Title:</label>
             <input type="text" name="title" class="form-control" id="title_add">

@@ -19,5 +19,5 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('create-task/', new_task, name='new_task'),
     path('json/',show_todolist_ajax, name='show_todolist_ajax'),
-    path('/add', add_task, name='add_task'),
+    path('add/', add_task, name='add_task'),
 ]

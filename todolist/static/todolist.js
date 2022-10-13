@@ -16,7 +16,7 @@ $('#add_task').submit(function(e) {
   $.ajax({
     data: $('#add_task').serialize(),
     type: "POST",
-    url: "add",
+    url: "add/",
     
     success: function(response) {
       $('#add').modal('toggle');
