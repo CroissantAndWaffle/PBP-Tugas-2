@@ -35,11 +35,6 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 .btn-primary{
-  background-color: white;
-  width: 8rem;
-  margin-top: 1em;
-  margin-bottom: 4em;
-  margin-left: 3em;
-  margin-right: auto;
+  margin-right: 2em;
 }
 

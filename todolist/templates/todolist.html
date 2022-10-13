@@ -24,34 +24,34 @@
         <a class="nav-link" href="{% url 'todolist:new_task' %}">Create Task</a>
       </li>
     </ul>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Add Task</button>
   </div>
 </nav>
 
 <!-- Modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Task</button>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Task</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="POST" action="{%url 'todolist:add_task'}" id="add_task">
+          {% csrf_token %}
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="recipient-name" class="col-form-label">Title:</label>
+            <input type="text" name="title" class="form-control" id="title_add">
           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="message-text" class="col-form-label">Description:</label>
+            <textarea name="description" class="form-control" id="desc_add"  rows="4"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" name="submit" value="Save"/>
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
       </div>
     </div>
   </div> 

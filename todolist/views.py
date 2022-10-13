@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.http import JsonResponse
+from .forms import TaskForm
 
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
@@ -91,4 +93,12 @@ def new_task(request):
 
 @login_required(login_url='/todolist/login/')
 def add_task (request):
-    pass
+    if request.method == 'POST':
+        uid = request.COOKIES['user']
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        date = datetime.datetime.now()
+        new_task = Task(user = User.objects.get(pk = uid), date=date, title=title, description=description)
+        new_task.save()
+        return HttpResponse(b"CREATED", status=200)
+    return redirect("/todolist")

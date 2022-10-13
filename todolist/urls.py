@@ -6,6 +6,7 @@ from todolist.views import login_user
 from todolist.views import logout_user
 from todolist.views import new_task
 from todolist.views import show_todolist_ajax
+from todolist.views import add_task 
 
 
 app_name = 'todolist'
@@ -18,4 +19,5 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('create-task/', new_task, name='new_task'),
     path('json/',show_todolist_ajax, name='show_todolist_ajax'),
+    path('/add', add_task, name='add_task'),
 ]
