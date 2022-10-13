@@ -16,7 +16,7 @@ $('#add_task').submit(function(e) {
   $.ajax({
     data: $('#add_task').serialize(),
     type: "POST",
-    url: "{% url 'todolist:add_task' %}",
+    url: "add",
     
     success: function(response) {
       $('#add').modal('toggle');
@@ -32,7 +32,7 @@ $('#add_task').submit(function(e) {
 
       $.post('add/', add_data)
 
-      $.$('#display').append('<div class="col-13 col-md-6 col-lg-4">\
+      $('#display').append('<div class="col-13 col-md-6 col-lg-4">\
       <div class="card">\
       <div class="card-body">\
       <h5 class="card-title">'+title+'</h5>\
@@ -42,5 +42,5 @@ $('#add_task').submit(function(e) {
     
     },
   })
-e.preventDefault();
+  e.preventDefault();
 });
